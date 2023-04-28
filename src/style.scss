@@ -1,0 +1,219 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* font loader */
+@font-face
+{
+    font-family: 'nimbus-sans';
+    src: url('./utils/fonts/NimbusSanL-Reg.woff') format('woff'),
+        url('./utils/fonts/NimbusSanL-Reg.woff2') format('woff2');
+}
+
+@font-face
+{
+    font-family: 'Kyiv Sans';
+    src: url('./utils/fonts/KyivTypeSans-VarGX.woff2') format('woff2-variations');
+    font-weight: 0 1000;
+    font-display: swap;
+}
+
+body
+{
+    font-family: 'nimbus-sans', sans-serif;
+    color: rgb(0, 0, 0);
+    // letter-spacing: 0.1em;
+    user-select: none;
+}
+
+header, footer {
+    position: fixed;
+    width: 100%;
+}
+
+header {
+    top: 0;
+    left: 0;
+
+    .header_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 3vw;
+        margin: 0 6vw;
+    }
+}
+
+
+footer {
+    bottom: 0;
+    left: 0;
+
+    .footer_content {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-bottom: 3vw;
+        margin: 0 6vw;
+    }
+
+    .socials {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            // gap: .25rem;
+        }
+    }
+}
+
+.link {
+    width: min-content;
+    display: flex;
+    align-items: center;
+    height: 1.3rem;
+    text-decoration: none;
+    color: black;
+    font-family: 'nimbus-sans', sans-serif;
+
+    span {
+        height: 1.1rem;
+        overflow: hidden;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            transition: transform 300ms ease-in-out;
+
+            &:hover {
+                transform: translateY(-1.1rem);
+                // transform: translateX(-50%);
+
+                span {
+                    &:first-child {
+                        transform: rotate(-20deg);
+                        transform: translateY(-.9rem);
+                        // transform: skew(-30deg);
+                    }
+                    &:last-child {
+                        transform: rotate(0deg);
+                        // transform: skew(0deg);
+                    }
+                }
+            }
+
+            span {
+                &:first-child {
+                    transform-origin: right;
+                    transition: transform 300ms ease-in-out;
+                }
+                &:last-child {
+                    color: #fb5eff;
+                    transform: rotate(20deg);
+                    // transform: skew(30deg);
+                    transform-origin: top left;
+                    transition: transform 300ms ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #fb5eff;
+    background-color:#fb5eff;
+    z-index: 9998;
+    pointer-events: none;
+    transition: width .2s ease, height .2s ease, background-color .2s ease;
+}
+
+.cursor--active {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+}
+
+.progress-bar {
+    position: fixed;
+    bottom: 4vw;
+    right: 50%;
+    transform: translateX(50%);
+    height: 2px;
+    width: 150px;
+    background-color: rgb(207, 207, 207);
+    border-radius: 50px;
+    transform-origin: center;
+
+    div {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #fb5eff;
+        border-radius: 20px;
+    }
+}
+
+.canvas {
+	position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.special {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .4rem;
+}
+
+.variable-font {
+    --font-weight: 1;
+    --font-midline: 1000;
+    --font-contrast: -1000;
+    font-family: 'Kyiv Sans', sans-serif;
+    font-weight: 1;
+    font-variation-settings:
+        'wght' var(--font-weight),
+        'MIDL' var(--font-midline),
+        'CONT' var(--font-contrast);
+    // transition: font-variation-settings 300ms ease;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fbe4fb;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loader-title {
+        opacity: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 15vw;
+    }
+}
