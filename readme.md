@@ -1,6 +1,7 @@
 # LANDING PAGE
 
 ## Setup
+Better with pnpm ✨
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
 
